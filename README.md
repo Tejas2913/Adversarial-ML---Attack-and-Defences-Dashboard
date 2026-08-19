@@ -36,15 +36,15 @@ The dashboard is built using a decoupled architecture separating the interactive
 
 ```mermaid
 graph TD
-    A[User / Examiner] -->|Select Baseline, Model & Attack| B[React + Vite Frontend]
-    B -->|POST /api/predict_numerical| C[FastAPI Inference Engine]
-    C -->|1. Compute Reference| D[Clean Model Inference f(x_clean)]
-    C -->|2. Apply Perturbation δ| E[Attacked Vector x_att = x_clean + δ]
-    E -->|Evaluate Vulnerability| F[Attacked Model Inference f(x_att)]
-    E -->|3. Apply Countermeasure| G[Sanitized Vector x_def / Rejection Logic]
-    G -->|Evaluate Resilience| H[Defended Decision f(x_def)]
-    H -->|Return JSON Payload| B
-    B -->|Render 3-Card Decision Flow & Table| A
+    A["User / Examiner"] -->|"Select Baseline, Model & Attack"| B["React + Vite Frontend"]
+    B -->|"POST /api/predict_numerical"| C["FastAPI Inference Engine"]
+    C -->|"1. Compute Reference"| D["Clean Model Inference f(x_clean)"]
+    C -->|"2. Apply Perturbation Vector"| E["Attacked Vector x_att = x_clean + delta"]
+    E -->|"Evaluate Vulnerability"| F["Attacked Model Inference f(x_att)"]
+    E -->|"3. Apply Countermeasure"| G["Sanitized Vector x_def / Rejection Logic"]
+    G -->|"Evaluate Resilience"| H["Defended Decision f(x_def)"]
+    H -->|"Return JSON Payload"| B
+    B -->|"Render 3-Card Decision Flow"| A
 ```
 
 ### Reference vs. Perturbation State Flow
@@ -320,8 +320,4 @@ npm run dev
 
 ## Author
 
-**Tejas R M**  
-MSc Artificial Intelligence & Machine Learning  
-Department of Computer Science  
-CHRIST (Deemed to be University), Bangalore, India  
-GitHub: [https://github.com/Tejas2913](https://github.com/Tejas2913)
+**Tejas R M**
