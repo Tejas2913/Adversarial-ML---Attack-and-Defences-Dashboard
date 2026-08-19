@@ -1,0 +1,321 @@
+{
+  "1": {
+    "attack_id": 1,
+    "sample_type": "",
+    "tables": [],
+    "text_outputs": [
+      "Features drifted by the attacker: ['temperature', 'humidity', 'ph', 'rainfall']\n",
+      "       Feature   Original   Attacked\n0            n  84.000000  84.000000\n1            p   7.000000   7.000000\n2            k  51.000000  51.000000\n3  temperature  26.815305  27.555970\n4     humidity  87.656945  90.967950\n5           ph   6.399669   6.513336\n6     rainfall  55.740736  64.032573",
+      "\nOriginal Prediction : watermelon\nAttacked Prediction : muskmelon\nDefense 1 Decision  : ACCEPTED (not flagged)\n"
+    ],
+    "image_assets": [],
+    "original_prediction": "",
+    "attacked_prediction": "",
+    "defended_prediction": "",
+    "defense_decision": "",
+    "notes": ""
+  },
+  "2": {
+    "attack_id": 2,
+    "sample_type": "",
+    "tables": [],
+    "text_outputs": [
+      "Features masked by the attacker: ['ph', 'rainfall']\n",
+      "       Feature   Original    Attacked  Defended (re-imputed)\n0            n  34.000000   34.000000              34.000000\n1            p  60.000000   60.000000              60.000000\n2            k  16.000000   16.000000              16.000000\n3  temperature  31.357308   31.357308              31.357308\n4     humidity  64.249921   64.249921              64.249921\n5           ph   7.322555    6.472688               6.435973\n6     rainfall  63.856689  103.372380              94.867624",
+      "\nOriginal Prediction : blackgram\nAttacked Prediction : pigeonpeas\nDefended Prediction : pigeonpeas\n"
+    ],
+    "image_assets": [],
+    "original_prediction": "",
+    "attacked_prediction": "",
+    "defended_prediction": "",
+    "defense_decision": "",
+    "notes": ""
+  },
+  "3": {
+    "attack_id": 3,
+    "sample_type": "",
+    "tables": [],
+    "text_outputs": [
+      "ONLY the top-importance feature was perturbed by the attacker: ['rainfall']\n\nChanged feature(s) only:\n",
+      "    Feature   Original    Attacked\n6  rainfall  63.856689  146.775061",
+      "\nFull sample (for reference):\n",
+      "       Feature   Original    Attacked\n0            n  34.000000   34.000000\n1            p  60.000000   60.000000\n2            k  16.000000   16.000000\n3  temperature  31.357308   31.357308\n4     humidity  64.249921   64.249921\n5           ph   7.322555    7.322555\n6     rainfall  63.856689  146.775061",
+      "\nOriginal Prediction : blackgram\nAttacked Prediction : pigeonpeas\nDefense 3 Decision  : ACCEPTED (not flagged)\n"
+    ],
+    "image_assets": [],
+    "original_prediction": "",
+    "attacked_prediction": "",
+    "defended_prediction": "",
+    "defense_decision": "",
+    "notes": ""
+  },
+  "4": {
+    "attack_id": 4,
+    "sample_type": "",
+    "tables": [],
+    "text_outputs": [
+      "       Feature   Original   Attacked  Defended (clipped)\n0            n  34.000000  34.000000           34.000000\n1            p  60.000000  60.000000           60.000000\n2            k  16.000000  16.000000           16.000000\n3  temperature  31.357308  31.357308           31.357308\n4     humidity  64.249921  64.249921           64.249921\n5           ph   7.322555   7.322555            7.322555\n6     rainfall  63.856689  85.968255           85.968255",
+      "\nOriginal Prediction : blackgram\nAttacked Prediction : pigeonpeas\nDefended Prediction : pigeonpeas\n"
+    ],
+    "image_assets": [],
+    "original_prediction": "",
+    "attacked_prediction": "",
+    "defended_prediction": "",
+    "defense_decision": "",
+    "notes": ""
+  },
+  "5": {
+    "attack_id": 5,
+    "sample_type": "",
+    "tables": [],
+    "text_outputs": [
+      "Features changed by the successful random-search candidate: ['n', 'p', 'k', 'temperature', 'humidity', 'ph', 'rainfall']\n",
+      "       Feature    Original    Attacked\n0            n    9.000000  -17.360902\n1            p   76.000000   92.160767\n2            k   25.000000   66.070105\n3  temperature   28.883021   28.669680\n4     humidity   50.123238   63.414048\n5           ph    5.709512    5.873936\n6     rainfall  179.215587  157.818676",
+      "\nOriginal Prediction : pigeonpeas\nAttacked Prediction : chickpea\nDefense 5 Decision  : FLAGGED / REJECTED (low confidence)  (confidence = 0.270)\n"
+    ],
+    "image_assets": [],
+    "original_prediction": "",
+    "attacked_prediction": "",
+    "defended_prediction": "",
+    "defense_decision": "",
+    "notes": ""
+  },
+  "6": {
+    "attack_id": 6,
+    "sample_type": "",
+    "tables": [],
+    "text_outputs": [
+      "       Feature    Original    Attacked\n0            n    9.000000   15.450182\n1            p   76.000000   47.496823\n2            k   25.000000   27.651458\n3  temperature   28.883021   28.163134\n4     humidity   50.123238   71.525786\n5           ph    5.709512    5.833886\n6     rainfall  179.215587  176.851191",
+      "\nOriginal Prediction (RF)     : pigeonpeas\nAdversarial Prediction (RF)  : mango\nEnsemble Majority Prediction : pigeonpeas\nDefense 6 Decision           : ACCEPTED (models agree)\n"
+    ],
+    "image_assets": [],
+    "original_prediction": "",
+    "attacked_prediction": "",
+    "defended_prediction": "",
+    "defense_decision": "",
+    "notes": ""
+  },
+  "7": {
+    "attack_id": 7,
+    "sample_type": "",
+    "tables": [],
+    "text_outputs": [
+      "       Feature    Original  Adversarial  Normal Min  Normal Max  Within Range?\n0            n    9.000000    15.033333    0.000000  140.000000           True\n1            p   76.000000   105.053333    5.000000  145.000000           True\n2            k   25.000000   112.560000    5.000000  205.000000           True\n3  temperature   28.883021    25.770787    8.825675   43.675493           True\n4     humidity   50.123238    71.175030   14.258040   99.981876           True\n5           ph    5.709512     5.822681    3.504752    9.935091           True\n6     rainfall  179.215587   145.709070   20.211267  298.560117           True",
+      "\n^ Every adversarial value stays inside the normal observed range -- this is exactly why simple\n  min/max range checks (Defense 1 / Defense 4) cannot catch Attack 7, and why K-Means is needed.\n\nOriginal Prediction : pigeonpeas\nAttacked Prediction : chickpea\nK-Means distance     : 2.335  (flag threshold ~ 95th pct of clean distances)\nK-Means Decision     : FLAGGED by K-Means (far from centroid)\n"
+    ],
+    "image_assets": [],
+    "original_prediction": "",
+    "attacked_prediction": "",
+    "defended_prediction": "",
+    "defense_decision": "",
+    "notes": ""
+  },
+  "8": {
+    "attack_id": 8,
+    "sample_type": "",
+    "tables": [],
+    "text_outputs": [
+      "       Feature    Original    Attacked\n0            n    9.000000  -16.300613\n1            p   76.000000  107.690134\n2            k   25.000000   55.358263\n3  temperature   28.883021   27.325009\n4     humidity   50.123238   53.838398\n5           ph    5.709512    5.766431\n6     rainfall  179.215587  238.732413",
+      "\nOriginal Prediction        : pigeonpeas\nAttacked Prediction        : grapes\nNearest-Neighbor Distance  : 2.757  (DBSCAN core-sample reference, eps=0.8)\nDBSCAN Defense Decision    : FLAGGED as NOISE/OUTLIER by DBSCAN\n\n(Note: DBSCAN has no native predict() for unseen points, so the defense uses nearest-neighbor\n distance to DBSCAN's fitted core samples -- exactly what dbscan_adversarial_detector computes.)\n"
+    ],
+    "image_assets": [
+      "/assets/plots/cell_091_out_0.png"
+    ],
+    "original_prediction": "",
+    "attacked_prediction": "",
+    "defended_prediction": "",
+    "defense_decision": "",
+    "notes": ""
+  },
+  "9": {
+    "attack_id": 9,
+    "sample_type": "",
+    "tables": [],
+    "text_outputs": [
+      "   Sample Index Original Label Poisoned Label      After Defense\n0           482    kidneybeans         papaya  REMOVED (flagged)\n1            65       mungbean    kidneybeans  REMOVED (flagged)\n2           926           jute          apple  REMOVED (flagged)\n3           481          maize     pigeonpeas  REMOVED (flagged)\n4            23        coconut     pigeonpeas  REMOVED (flagged)",
+      "\nClean Model Accuracy    : 0.9945\nPoisoned Model Accuracy : 0.9782\nDefended Model Accuracy : 0.9836\n"
+    ],
+    "image_assets": [],
+    "original_prediction": "",
+    "attacked_prediction": "",
+    "defended_prediction": "",
+    "defense_decision": "",
+    "notes": ""
+  },
+  "10": {
+    "attack_id": 10,
+    "sample_type": "",
+    "tables": [],
+    "text_outputs": [
+      "   Sample Index Original Label Poisoned Label Target Class\n0            37     watermelon          apple        apple\n1          1521     watermelon          apple        apple\n2           240     watermelon          apple        apple\n3             0     watermelon          apple        apple\n4           884     watermelon          apple        apple",
+      "\nClass distribution \u2014 source class = 'watermelon', target class = 'apple':\n",
+      "            Before Poisoning  After Poisoning\nwatermelon                75               45\napple                     75              105",
+      "\nTargeted class ('watermelon') recall \u2014 clean: 1.0000, poisoned: 0.7200, defended: 0.7600\n"
+    ],
+    "image_assets": [],
+    "original_prediction": "",
+    "attacked_prediction": "",
+    "defended_prediction": "",
+    "defense_decision": "",
+    "notes": ""
+  },
+  "11": {
+    "attack_id": 11,
+    "sample_type": "",
+    "tables": [],
+    "text_outputs": [
+      "       Feature  Original (standardized)  Poisoned (standardized)\n0            n                -0.553510                 1.946490\n1            p                 0.293078                 2.793078\n2            k                -0.633994                 1.866006\n3  temperature                -0.387858                 2.112142\n4     humidity                -2.217204                 0.282796\n5           ph                -1.215399                 1.284601\n6     rainfall                -0.050598                 2.449402",
+      "\nSample 482 sanitization outcome: REMOVED by outlier filter\nTraining set size \u2014 before poisoning: 1650, after poisoning: 1650, after sanitization: 1374\n"
+    ],
+    "image_assets": [],
+    "original_prediction": "",
+    "attacked_prediction": "",
+    "defended_prediction": "",
+    "defense_decision": "",
+    "notes": ""
+  },
+  "12": {
+    "attack_id": 12,
+    "sample_type": "",
+    "tables": [],
+    "text_outputs": [
+      "       Feature  Normal Sample (idx 0)  Injected Suspicious Sample (idx 1650)\n0            n               1.231795                              -0.745631\n1            p              -1.073821                              -0.220554\n2            k               0.036728                              -0.393200\n3  temperature              -0.049638                               1.568574\n4     humidity               0.578557                              -0.657812\n5           ph               0.553991                               3.039956\n6     rainfall              -1.127768                              -1.310956",
+      "\nInjected sample's assigned label: grapes\nIsolation Forest detection result: NOT detected\n\nPoisoned training dataset size : 1800\nSanitized training dataset size: 1674\n"
+    ],
+    "image_assets": [],
+    "original_prediction": "",
+    "attacked_prediction": "",
+    "defended_prediction": "",
+    "defense_decision": "",
+    "notes": ""
+  },
+  "13": {
+    "attack_id": 13,
+    "sample_type": "",
+    "tables": [],
+    "text_outputs": [
+      "      Stage                                             Text\n0  Original  Is the maize price expected to rise next month?\n1  Attacked   Is the maize rate expected to rise next month?\n2  Defended  Is the maize price expected to rise next month?",
+      "Substituted agricultural words detected in attacked text: ['rate']\n\nOriginal Prediction : market_price_query\nAttacked Prediction : weather_advisory\nDefended Prediction : market_price_query\n"
+    ],
+    "image_assets": [],
+    "original_prediction": "",
+    "attacked_prediction": "",
+    "defended_prediction": "",
+    "defense_decision": "",
+    "notes": ""
+  },
+  "14": {
+    "attack_id": 14,
+    "sample_type": "",
+    "tables": [],
+    "text_outputs": [
+      "Original:\n  \"Is the maize price expected to rise next month?\"\nAttacked:\n  \"Is the maize priec expected to rise next month?\"\nDefended:\n  \"Is the maize price expected to rise next month?\"\n\nOriginal Prediction : market_price_query\nAttacked Prediction : weather_advisory\nDefended Prediction : market_price_query\n"
+    ],
+    "image_assets": [],
+    "original_prediction": "",
+    "attacked_prediction": "",
+    "defended_prediction": "",
+    "defense_decision": "",
+    "notes": ""
+  },
+  "15": {
+    "attack_id": 15,
+    "sample_type": "",
+    "tables": [],
+    "text_outputs": [
+      "                       Stage  \\\n0                   Original   \n1  Attacked (tokens removed)   \n\n                                                Text  \n0  What is the current market price for banana in...  \n1               What is the for banana in the mandi?  ",
+      "Important tokens removed by the attacker: ['price', 'market', 'current', 'local']\n\nOriginal Prediction : market_price_query\nAttacked Prediction : disease_management\nDefense 15 Decision : ACCEPTED\n"
+    ],
+    "image_assets": [],
+    "original_prediction": "",
+    "attacked_prediction": "",
+    "defended_prediction": "",
+    "defense_decision": "",
+    "notes": ""
+  },
+  "16": {
+    "attack_id": 16,
+    "sample_type": "",
+    "tables": [],
+    "text_outputs": [
+      "                 Stage                                               Text\n0             Original  How does humidity affect flowering in maize pl...\n1   Attacked (diluted)  How does humidity affect flowering in maize pl...\n2  Defended (filtered)  How does humidity affect flowering in maize pl...",
+      "\nOriginal Prediction : weather_advisory\nAttacked Prediction : disease_management\nDefended Prediction : weather_advisory\n"
+    ],
+    "image_assets": [],
+    "original_prediction": "",
+    "attacked_prediction": "",
+    "defended_prediction": "",
+    "defense_decision": "",
+    "notes": ""
+  },
+  "17": {
+    "attack_id": 17,
+    "sample_type": "",
+    "tables": [],
+    "text_outputs": [
+      "<Figure size 1600x400 with 4 Axes>",
+      "Clean Prediction    : angular_leaf_spot\nAttacked Prediction : bean_rust\nDefended Prediction : bean_rust\n"
+    ],
+    "image_assets": [
+      "/assets/plots/cell_166_out_0.png"
+    ],
+    "original_prediction": "",
+    "attacked_prediction": "",
+    "defended_prediction": "",
+    "defense_decision": "",
+    "notes": ""
+  },
+  "18": {
+    "attack_id": 18,
+    "sample_type": "",
+    "tables": [],
+    "text_outputs": [
+      "<Figure size 1200x400 with 3 Axes>",
+      "Original Prediction : angular_leaf_spot\nAttacked Prediction : angular_leaf_spot\nDefended Prediction : angular_leaf_spot\n"
+    ],
+    "image_assets": [
+      "/assets/plots/cell_172_out_0.png"
+    ],
+    "original_prediction": "",
+    "attacked_prediction": "",
+    "defended_prediction": "",
+    "defense_decision": "",
+    "notes": ""
+  },
+  "19": {
+    "attack_id": 19,
+    "sample_type": "",
+    "tables": [],
+    "text_outputs": [
+      "<Figure size 1600x640 with 10 Axes>"
+    ],
+    "image_assets": [
+      "/assets/plots/cell_176_out_0.png",
+      "/assets/plots/cell_186_out_0.png"
+    ],
+    "original_prediction": "",
+    "attacked_prediction": "",
+    "defended_prediction": "",
+    "defense_decision": "",
+    "notes": ""
+  },
+  "20": {
+    "attack_id": 20,
+    "sample_type": "",
+    "tables": [],
+    "text_outputs": [
+      "<Figure size 1600x640 with 10 Axes>"
+    ],
+    "image_assets": [
+      "/assets/plots/cell_190_out_0.png",
+      "/assets/plots/cell_194_out_1.png",
+      "/assets/plots/cell_198_out_0.png",
+      "/assets/plots/cell_202_out_0.png"
+    ],
+    "original_prediction": "",
+    "attacked_prediction": "",
+    "defended_prediction": "",
+    "defense_decision": "",
+    "notes": ""
+  }
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "Classifier": "Random Forest",
+    "mean_accuracy_drop": 0.486591,
+    "mean_attack_success_rate": 0.490859,
+    "status": "Most Vulnerable"
+  },
+  {
+    "Classifier": "MLP",
+    "mean_accuracy_drop": 0.469091,
+    "mean_attack_success_rate": 0.475459,
+    "status": "Vulnerable"
+  },
+  {
+    "Classifier": "Logistic Regression",
+    "mean_accuracy_drop": 0.430909,
+    "mean_attack_success_rate": 0.45122,
+    "status": "Moderate"
+  },
+  {
+    "Classifier": "SVM",
+    "mean_accuracy_drop": 0.433864,
+    "mean_attack_success_rate": 0.441972,
+    "status": "Most Robust"
+  }
+]

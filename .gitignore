@@ -1,0 +1,33 @@
+# Dependencies & Node
+node_modules/
+dashboard_app/node_modules/
+
+# Production build outputs
+dist/
+dashboard_app/dist/
+build/
+
+# Python Caches & Virtual Environments
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+env/
+
+# Jupyter & Temporary Files
+.ipynb_checkpoints/
+*.log
+
+# Environment Variables & Secrets
+.env
+.env.*
+!.env.example
+
+# OS Generated Files
+.DS_Store
+Thumbs.db
+
+# Temporary Development Audit Scripts
+scratch/

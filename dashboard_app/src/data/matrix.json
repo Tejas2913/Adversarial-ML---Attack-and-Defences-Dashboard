@@ -1,0 +1,162 @@
+[
+  {
+    "Unnamed: 0": 0,
+    "#": 1,
+    "Attack": "Sensor Drift Attack",
+    "Modality": "Numerical",
+    "Stage": "Decision-Time Evasion",
+    "Defense": "Sensor Range + Consistency Validation"
+  },
+  {
+    "Unnamed: 0": 1,
+    "#": 2,
+    "Attack": "Strategic Feature Masking Attack",
+    "Modality": "Numerical",
+    "Stage": "Decision-Time Evasion",
+    "Defense": "Robust Imputation + Missingness Detection"
+  },
+  {
+    "Unnamed: 0": 2,
+    "#": 3,
+    "Attack": "Sparse Feature Perturbation Attack",
+    "Modality": "Numerical",
+    "Stage": "Decision-Time Evasion",
+    "Defense": "Feature Change / Sensitivity Monitoring"
+  },
+  {
+    "Unnamed: 0": 3,
+    "#": 4,
+    "Attack": "Feature Boundary Manipulation Attack",
+    "Modality": "Numerical",
+    "Stage": "Decision-Time Evasion",
+    "Defense": "Feature Clipping / Valid Agricultural Bounds"
+  },
+  {
+    "Unnamed: 0": 4,
+    "#": 5,
+    "Attack": "Query-Based Random Search Attack",
+    "Modality": "Numerical",
+    "Stage": "Decision-Time Evasion (Black-Box)",
+    "Defense": "Prediction Confidence Rejection"
+  },
+  {
+    "Unnamed: 0": 5,
+    "#": 6,
+    "Attack": "Decision Boundary Search Attack",
+    "Modality": "Numerical",
+    "Stage": "Decision-Time Evasion",
+    "Defense": "Ensemble Voting Defense"
+  },
+  {
+    "Unnamed: 0": 6,
+    "#": 7,
+    "Attack": "Distribution-Preserving Evasion Attack",
+    "Modality": "Numerical",
+    "Stage": "Decision-Time Evasion",
+    "Defense": "K-Means Centroid-Distance Detection"
+  },
+  {
+    "Unnamed: 0": 7,
+    "#": 8,
+    "Attack": "Low-Density Evasion Attack",
+    "Modality": "Numerical",
+    "Stage": "Decision-Time Evasion",
+    "Defense": "DBSCAN Outlier/Noise Detection"
+  },
+  {
+    "Unnamed: 0": 8,
+    "#": 9,
+    "Attack": "Random Label-Flipping Poisoning",
+    "Modality": "Numerical",
+    "Stage": "Training-Time Poisoning",
+    "Defense": "Label Consistency Filtering"
+  },
+  {
+    "Unnamed: 0": 9,
+    "#": 10,
+    "Attack": "Targeted Class Poisoning",
+    "Modality": "Numerical",
+    "Stage": "Training-Time Poisoning",
+    "Defense": "Class-Wise Training Data Audit"
+  },
+  {
+    "Unnamed: 0": 10,
+    "#": 11,
+    "Attack": "Feature Poisoning Attack",
+    "Modality": "Numerical",
+    "Stage": "Training-Time Poisoning",
+    "Defense": "RobustScaler + Training Outlier Filtering"
+  },
+  {
+    "Unnamed: 0": 11,
+    "#": 12,
+    "Attack": "Outlier Injection Poisoning",
+    "Modality": "Numerical",
+    "Stage": "Training-Time Poisoning",
+    "Defense": "Isolation Forest Training Data Sanitization"
+  },
+  {
+    "Unnamed: 0": 12,
+    "#": 13,
+    "Attack": "Agricultural Synonym Substitution",
+    "Modality": "Text",
+    "Stage": "Decision-Time Evasion",
+    "Defense": "Agricultural Text Normalization"
+  },
+  {
+    "Unnamed: 0": 13,
+    "#": 14,
+    "Attack": "Character-Level Typo Attack",
+    "Modality": "Text",
+    "Stage": "Decision-Time Evasion",
+    "Defense": "Spell Correction / Token Normalization"
+  },
+  {
+    "Unnamed: 0": 14,
+    "#": 15,
+    "Attack": "Important Token Removal Attack",
+    "Modality": "Text",
+    "Stage": "Decision-Time Evasion",
+    "Defense": "Text Consistency / Missing-Keyword Detection"
+  },
+  {
+    "Unnamed: 0": 15,
+    "#": 16,
+    "Attack": "Keyword Dilution Attack",
+    "Modality": "Text",
+    "Stage": "Decision-Time Evasion",
+    "Defense": "TF-IDF Input Sanitization / Suspicious Token F..."
+  },
+  {
+    "Unnamed: 0": 16,
+    "#": 17,
+    "Attack": "FGSM",
+    "Modality": "Image",
+    "Stage": "Decision-Time Evasion",
+    "Defense": "FGSM Adversarial Training"
+  },
+  {
+    "Unnamed: 0": 17,
+    "#": 18,
+    "Attack": "Localized Adversarial Patch / Leaf Region Pert...",
+    "Modality": "Image",
+    "Stage": "Decision-Time Evasion",
+    "Defense": "Image Preprocessing + Randomized Transformation"
+  },
+  {
+    "Unnamed: 0": 18,
+    "#": 19,
+    "Attack": "CNN Image Label-Poisoning Attack",
+    "Modality": "Image",
+    "Stage": "Training-Time Poisoning (Deep Learning)",
+    "Defense": "CNN Label Consistency + Training Data Sanitiza..."
+  },
+  {
+    "Unnamed: 0": 19,
+    "#": 20,
+    "Attack": "CNN Backdoor-Style Image Poisoning",
+    "Modality": "Image",
+    "Stage": "Training-Time Poisoning (Deep Learning)",
+    "Defense": "Trigger/Training Image Anomaly Detection + San..."
+  }
+]

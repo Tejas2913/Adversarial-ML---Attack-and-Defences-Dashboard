@@ -1,0 +1,26 @@
+[
+  {
+    "modality": "Numerical",
+    "clean_accuracy": 0.986364,
+    "mean_accuracy_drop": 0.306023,
+    "attacks_count": 12,
+    "evasion_count": 8,
+    "poisoning_count": 4
+  },
+  {
+    "modality": "Text",
+    "clean_accuracy": 0.911111,
+    "mean_accuracy_drop": 0.341667,
+    "attacks_count": 4,
+    "evasion_count": 4,
+    "poisoning_count": 0
+  },
+  {
+    "modality": "Image",
+    "clean_accuracy": 0.679688,
+    "mean_accuracy_drop": 0.113281,
+    "attacks_count": 4,
+    "evasion_count": 2,
+    "poisoning_count": 2
+  }
+]

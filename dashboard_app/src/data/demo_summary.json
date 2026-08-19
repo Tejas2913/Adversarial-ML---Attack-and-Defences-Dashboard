@@ -1,0 +1,182 @@
+[
+  {
+    "Unnamed: 0": 0,
+    "Attack_ID": 1,
+    "Attack": "Sensor Drift Attack",
+    "Original_Data_Shown": "Yes (raw sensor values)",
+    "Attacked_Data_Shown": "Yes (drifted values)",
+    "Defense_Result_Shown": "ACCEPTED (not flagged)",
+    "Prediction_Changed": "True"
+  },
+  {
+    "Unnamed: 0": 1,
+    "Attack_ID": 2,
+    "Attack": "Strategic Feature Masking Attack",
+    "Original_Data_Shown": "Yes",
+    "Attacked_Data_Shown": "Yes (masked values)",
+    "Defense_Result_Shown": "Yes (re-imputed values shown)",
+    "Prediction_Changed": "True"
+  },
+  {
+    "Unnamed: 0": 2,
+    "Attack_ID": 3,
+    "Attack": "Sparse Feature Perturbation Attack",
+    "Original_Data_Shown": "Yes",
+    "Attacked_Data_Shown": "Yes (single feature changed)",
+    "Defense_Result_Shown": "ACCEPTED (not flagged)",
+    "Prediction_Changed": "True"
+  },
+  {
+    "Unnamed: 0": 3,
+    "Attack_ID": 4,
+    "Attack": "Feature Boundary Manipulation Attack",
+    "Original_Data_Shown": "Yes",
+    "Attacked_Data_Shown": "Yes (boundary-search values)",
+    "Defense_Result_Shown": "Yes (clipped values shown)",
+    "Prediction_Changed": "True"
+  },
+  {
+    "Unnamed: 0": 4,
+    "Attack_ID": 5,
+    "Attack": "Query-Based Random Search Attack",
+    "Original_Data_Shown": "Yes",
+    "Attacked_Data_Shown": "Yes (successful adversarial candidate)",
+    "Defense_Result_Shown": "FLAGGED / REJECTED (low confidence)",
+    "Prediction_Changed": "True"
+  },
+  {
+    "Unnamed: 0": 5,
+    "Attack_ID": 6,
+    "Attack": "Decision Boundary Search Attack",
+    "Original_Data_Shown": "Yes",
+    "Attacked_Data_Shown": "Yes (minimal joint perturbation)",
+    "Defense_Result_Shown": "ACCEPTED (models agree); Ensemble prediction =...",
+    "Prediction_Changed": "True"
+  },
+  {
+    "Unnamed: 0": 6,
+    "Attack_ID": 7,
+    "Attack": "Distribution-Preserving Evasion Attack",
+    "Original_Data_Shown": "Yes",
+    "Attacked_Data_Shown": "Yes (stays within normal range, shown above)",
+    "Defense_Result_Shown": "FLAGGED by K-Means (far from centroid)",
+    "Prediction_Changed": "True"
+  },
+  {
+    "Unnamed: 0": 7,
+    "Attack_ID": 8,
+    "Attack": "Low-Density Evasion Attack",
+    "Original_Data_Shown": "Yes",
+    "Attacked_Data_Shown": "Yes (pushed toward sparse region)",
+    "Defense_Result_Shown": "FLAGGED as NOISE/OUTLIER by DBSCAN",
+    "Prediction_Changed": "True"
+  },
+  {
+    "Unnamed: 0": 8,
+    "Attack_ID": 9,
+    "Attack": "Random Label-Flipping Poisoning",
+    "Original_Data_Shown": "Yes (clean training labels)",
+    "Attacked_Data_Shown": "Yes (poisoned training labels)",
+    "Defense_Result_Shown": "Yes (REMOVED/KEPT per sample shown above)",
+    "Prediction_Changed": "N/A (training-time)"
+  },
+  {
+    "Unnamed: 0": 9,
+    "Attack_ID": 10,
+    "Attack": "Targeted Class Poisoning",
+    "Original_Data_Shown": "Yes (clean labels)",
+    "Attacked_Data_Shown": "Yes (poisoned labels shown above)",
+    "Defense_Result_Shown": "Yes (class-wise audit; retrained accuracy shown)",
+    "Prediction_Changed": "N/A (training-time)"
+  },
+  {
+    "Unnamed: 0": 10,
+    "Attack_ID": 11,
+    "Attack": "Feature Poisoning Attack",
+    "Original_Data_Shown": "Yes (standardized training values)",
+    "Attacked_Data_Shown": "Yes (poisoned values shown above)",
+    "Defense_Result_Shown": "Yes (REMOVED/KEPT + dataset size shown)",
+    "Prediction_Changed": "N/A (training-time)"
+  },
+  {
+    "Unnamed: 0": 11,
+    "Attack_ID": 12,
+    "Attack": "Outlier Injection Poisoning",
+    "Original_Data_Shown": "Yes",
+    "Attacked_Data_Shown": "Yes (injected sample shown above)",
+    "Defense_Result_Shown": "Yes (detection result + dataset sizes shown)",
+    "Prediction_Changed": "N/A (training-time)"
+  },
+  {
+    "Unnamed: 0": 12,
+    "Attack_ID": 13,
+    "Attack": "Agricultural Synonym Substitution",
+    "Original_Data_Shown": "Yes",
+    "Attacked_Data_Shown": "Yes",
+    "Defense_Result_Shown": "Yes",
+    "Prediction_Changed": "True"
+  },
+  {
+    "Unnamed: 0": 13,
+    "Attack_ID": 14,
+    "Attack": "Character-Level Typo Attack",
+    "Original_Data_Shown": "Yes",
+    "Attacked_Data_Shown": "Yes",
+    "Defense_Result_Shown": "Yes",
+    "Prediction_Changed": "True"
+  },
+  {
+    "Unnamed: 0": 14,
+    "Attack_ID": 15,
+    "Attack": "Important Token Removal Attack",
+    "Original_Data_Shown": "Yes",
+    "Attacked_Data_Shown": "Yes (tokens removed, shown above)",
+    "Defense_Result_Shown": "ACCEPTED",
+    "Prediction_Changed": "True"
+  },
+  {
+    "Unnamed: 0": 15,
+    "Attack_ID": 16,
+    "Attack": "Keyword Dilution Attack",
+    "Original_Data_Shown": "Yes",
+    "Attacked_Data_Shown": "Yes",
+    "Defense_Result_Shown": "Yes",
+    "Prediction_Changed": "True"
+  },
+  {
+    "Unnamed: 0": 16,
+    "Attack_ID": 17,
+    "Attack": "FGSM",
+    "Original_Data_Shown": "Yes (image)",
+    "Attacked_Data_Shown": "Yes (perturbed image + perturbation shown)",
+    "Defense_Result_Shown": "Yes (adversarially-trained CNN prediction shown)",
+    "Prediction_Changed": "True"
+  },
+  {
+    "Unnamed: 0": 17,
+    "Attack_ID": 18,
+    "Attack": "Localized Adversarial Patch",
+    "Original_Data_Shown": "Yes (image)",
+    "Attacked_Data_Shown": "Yes (patch clearly visible)",
+    "Defense_Result_Shown": "Yes (preprocessed/defended image shown)",
+    "Prediction_Changed": "False"
+  },
+  {
+    "Unnamed: 0": 18,
+    "Attack_ID": 19,
+    "Attack": "CNN Image Label-Poisoning Attack",
+    "Original_Data_Shown": "Yes (training images shown above)",
+    "Attacked_Data_Shown": "Yes (same images, poisoned labels shown above)",
+    "Defense_Result_Shown": "Yes (3-way confusion matrices + accuracy compa...",
+    "Prediction_Changed": "N/A (training-time)"
+  },
+  {
+    "Unnamed: 0": 19,
+    "Attack_ID": 20,
+    "Attack": "CNN Backdoor-Style Image Poisoning",
+    "Original_Data_Shown": "Yes (training images shown above)",
+    "Attacked_Data_Shown": "Yes (trigger clearly visible, shown above)",
+    "Defense_Result_Shown": "Yes (trigger detection grid + before/after CNN...",
+    "Prediction_Changed": "N/A (training-time)"
+  }
+]

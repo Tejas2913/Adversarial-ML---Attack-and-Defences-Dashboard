@@ -1,0 +1,16 @@
+[
+  {
+    "stage": "Decision-Time Evasion",
+    "count": 14,
+    "mean_accuracy_drop": 0.4312,
+    "mean_asr": 0.455,
+    "description": "Attacker perturbs inference-time test inputs; model weights are fixed"
+  },
+  {
+    "stage": "Training-Time Poisoning",
+    "count": 6,
+    "mean_accuracy_drop": -0.0232,
+    "mean_asr": 0.5,
+    "description": "Attacker injects contaminated samples or flips labels into training dataset"
+  }
+]
