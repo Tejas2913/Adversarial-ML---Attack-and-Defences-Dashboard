@@ -5,6 +5,7 @@ import {
   CheckCircle2, XCircle, AlertOctagon, ArrowRight, Cpu, Activity, Info, Code, ChevronDown, ChevronUp,
   Lock, Target
 } from 'lucide-react';
+import { API_BASE_URL } from '../config';
 
 export default function LiveLab({ initialSandbox = 'numerical', initialAttackType }) {
   const [activeSandbox, setActiveSandbox] = useState(initialSandbox || 'numerical');
@@ -66,22 +67,27 @@ export default function LiveLab({ initialSandbox = 'numerical', initialAttackTyp
     if (activeSandbox !== 'numerical') return;
 
     setApiLoading(true);
+    const numericClean = {};
+    ['N', 'P', 'K', 'temperature', 'humidity', 'ph', 'rainfall'].forEach(col => {
+      numericClean[col] = parseFloat(cleanBaselineFeatures[col] !== undefined ? cleanBaselineFeatures[col] : 0);
+    });
+
     const payload = {
-      features: cleanBaselineFeatures,
+      features: numericClean,
       attack: selectedNumAttack,
       model: selectedNumModel,
-      drift_factor: driftFactor,
+      drift_factor: parseFloat(driftFactor) || 1.5,
       masked_features: maskedFeatures,
-      sparse_delta: sparseDelta,
-      boundary_val: boundaryVal,
-      query_noise: queryNoise,
-      boundary_step: boundaryStep,
-      kmeans_shift: kmeansShift,
-      density_factor: densityFactor,
-      confidence_threshold: confidenceThreshold
+      sparse_delta: parseFloat(sparseDelta) || 180.0,
+      boundary_val: parseFloat(boundaryVal) || 345.0,
+      query_noise: parseFloat(queryNoise) || 0.25,
+      boundary_step: parseFloat(boundaryStep) || 0.40,
+      kmeans_shift: parseFloat(kmeansShift) || 1.0,
+      density_factor: parseFloat(densityFactor) || 1.0,
+      confidence_threshold: parseFloat(confidenceThreshold) || 0.65
     };
 
-    fetch('http://127.0.0.1:8000/api/predict_numerical', {
+    fetch(`${API_BASE_URL}/api/predict_numerical`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
@@ -274,7 +280,7 @@ export default function LiveLab({ initialSandbox = 'numerical', initialAttackTyp
   useEffect(() => {
     if (activeSandbox !== 'text') return;
 
-    fetch('http://127.0.0.1:8000/api/predict_text', {
+    fetch(`${API_BASE_URL}/api/predict_text`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ query: customText, attack: selectedTextAttack })
@@ -428,7 +434,7 @@ export default function LiveLab({ initialSandbox = 'numerical', initialAttackTyp
             </div>
             <p className="text-xs text-slate-400 mt-1">
               {apiConnected 
-                ? 'Real-time Python model inference & defense pipeline running on http://127.0.0.1:8000' 
+                ? `Real-time Python model inference & defense pipeline connected (${API_BASE_URL})` 
                 : 'Interactive client-side simulation engine synchronized with notebook parameters'}
             </p>
           </div>
@@ -969,7 +975,7 @@ export default function LiveLab({ initialSandbox = 'numerical', initialAttackTyp
                   </div>
                   <div>
                     <span className="text-slate-500 block">Endpoint URL:</span>
-                    <span className="text-slate-300">http://127.0.0.1:8000/api/predict_numerical</span>
+                    <span className="text-slate-300 font-mono text-[11px] break-all">{API_BASE_URL}/api/predict_numerical</span>
                   </div>
                 </div>
 

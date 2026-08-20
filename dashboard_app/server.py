@@ -55,7 +55,7 @@ print("Training Numerical Models (LR, SVM, RF, MLP)...")
 models_num = {
     'rf': RandomForestClassifier(n_estimators=200, random_state=SEED),
     'svm': SVC(kernel="rbf", probability=True, random_state=SEED),
-    'lr': LogisticRegression(max_iter=2000, random_state=SEED),
+    'lr': LogisticRegression(max_iter=5000, random_state=SEED),
     'mlp': MLPClassifier(hidden_layer_sizes=(64, 32), max_iter=1000, random_state=SEED)
 }
 
@@ -151,7 +151,7 @@ print("Training Text Model (TF-IDF + LR)... Done!")
 
 # --- Request / Response Schemas ---
 class NumericalRequest(BaseModel):
-    features: Dict[str, float]
+    features: Dict[str, Any]
     attack: str # 'drift', 'masking', 'sparse', 'boundary', 'confidence', 'decision_boundary', 'kmeans', 'density'
     model: str # 'rf', 'svm', 'lr', 'mlp'
     # Attack-specific adversary parameters
@@ -186,7 +186,15 @@ def predict_numerical(req: NumericalRequest):
     model = models_num[selected_model_name]
     
     # 1. FIXED CLEAN INPUT & Real Model Prediction
-    orig_vec = np.array([[req.features[col] for col in feature_cols]])
+    orig_features = {}
+    for col in feature_cols:
+        val = req.features.get(col, feature_medians.get(col, 0.0))
+        try:
+            orig_features[col] = float(val)
+        except (ValueError, TypeError):
+            orig_features[col] = float(feature_medians.get(col, 0.0))
+
+    orig_vec = np.array([[orig_features[col] for col in feature_cols]])
     orig_pred_idx = model.predict(orig_vec)[0]
     orig_pred_class = label_encoder_num.inverse_transform([orig_pred_idx])[0]
     
@@ -194,7 +202,7 @@ def predict_numerical(req: NumericalRequest):
     orig_conf = float(np.max(orig_probs))
     
     # 2. Apply Attack Transformation (Adversary Perturbation on Clean Input)
-    att_features = dict(req.features)
+    att_features = dict(orig_features)
     att_type = req.attack.lower()
     
     if att_type == 'drift':
@@ -229,7 +237,7 @@ def predict_numerical(req: NumericalRequest):
         target_idx = (orig_pred_idx + 1) % len(label_encoder_num.classes_)
         target_centroid = centroids_num.get(target_idx, X_train_num.mean(axis=0))
         for i, col in enumerate(feature_cols):
-            att_features[col] = round(float(req.features[col] + step * (target_centroid[i] - req.features[col])), 2)
+            att_features[col] = round(float(orig_features[col] + step * (target_centroid[i] - orig_features[col])), 2)
             
     elif att_type == 'kmeans':
         k_shift = req.kmeans_shift if req.kmeans_shift is not None else 1.0
@@ -292,11 +300,11 @@ def predict_numerical(req: NumericalRequest):
 
     elif att_type == 'sparse':
         defense_name = "Feature Sensitivity Monitoring"
-        delta_rainfall = abs(att_features['rainfall'] - req.features['rainfall'])
+        delta_rainfall = abs(att_features['rainfall'] - orig_features['rainfall'])
         if delta_rainfall > 150:
             defense_action = f"SENSITIVITY ALERT (Rainfall delta {delta_rainfall:.1f}mm exceeded baseline shift threshold 150mm)"
             # Sensitivity defense flags input and falls back to clean baseline reading
-            def_features = dict(req.features)
+            def_features = dict(orig_features)
         else:
             defense_action = "ACCEPTED (Rainfall shift within sensitivity threshold)"
         
@@ -337,7 +345,7 @@ def predict_numerical(req: NumericalRequest):
         dist = np.linalg.norm(att_vec[0] - centroid)
         if dist > 30.0:
             defense_action = f"FLAGGED & RECOVERED (Perturbation distance {dist:.1f} crossed verification manifold)"
-            def_features = dict(req.features)
+            def_features = dict(orig_features)
         else:
             defense_action = "ACCEPTED (Sample remains within manifold distance)"
             
@@ -372,7 +380,7 @@ def predict_numerical(req: NumericalRequest):
         "mode": "LIVE MODEL INFERENCE • FASTAPI",
         "selected_model": selected_model_name.upper(),
         "attack_name": att_type.upper(),
-        "original_input": req.features,
+        "original_input": orig_features,
         "attacked_input": att_features,
         "defended_input": def_features,
         
